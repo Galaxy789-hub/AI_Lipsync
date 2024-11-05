@@ -8,16 +8,16 @@
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: black;
+  background: white;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: white;
   border-radius: 10px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
-  background: #27272a;
+  background: white;
 }
 
 .dark .scrollbar-custom::-webkit-scrollbar-track {
