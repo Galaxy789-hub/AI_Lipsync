@@ -1,10 +1,21 @@
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import VoiceModal from "../../Modal/page";
 
 function ContentVoice() {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleGeneration = () => {
     router.push("/Generation");
+  };
+
+  const handleVoiceModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -22,7 +33,10 @@ function ContentVoice() {
         <div className="relative basis-1/3 overflow-hidden rounded">
           <div className="flex flex-col gap-2">
             <p className="text-base font-bold pb-6">Voice-Over</p>
-            <button className="flex bg-[#E5E5E5] items-center w-max rounded-lg p-2 px-3 text-xs">
+            <button
+              onClick={handleVoiceModal}
+              className="flex bg-[#E5E5E5] items-center w-max rounded-lg p-2 px-3 text-xs"
+            >
               Play Voice Over
             </button>
             <p className="text-sm">Voice Over Selector</p>
@@ -162,6 +176,8 @@ function ContentVoice() {
           </select>
         </div>
       </div>
+
+      {isModalOpen && <VoiceModal onClose={closeModal} />}
     </>
   );
 }
